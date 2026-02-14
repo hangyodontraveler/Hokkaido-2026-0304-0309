@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>河堤小鹿雪國之旅</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --ice-blue: #f0f8ff;
+            --snow-white: #ffffff;
+            --deep-blue: #2c3e50;
+            --accent-blue: #0077be;
+            --tag-bg: #e1f5fe;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--ice-blue);
+            color: var(--deep-blue);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-image: linear-gradient(180deg, #d6eaf8 0%, #f0f8ff 100%);
+        }
+
+        .hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .container { max-width: 800px; margin: -30px auto 50px; padding: 0 15px; }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .section-title {
+            color: var(--accent-blue);
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 5px;
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .day-badge {
+            background: var(--accent-blue);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+        .day-route { font-weight: 700; font-size: 1.1rem; color: #333; }
+
+        .itinerary-detail {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .itinerary-detail li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        .itinerary-detail li::before {
+            content: "\F26A";
+            font-family: "bootstrap-icons";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        .img-box {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .img-box img { width: 100%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+        }
+        .info-item { display: flex; align-items: flex-start; gap: 5px; }
+        .info-item i { color: var(--accent-blue); }
+
+        .recommend-tag {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 10px;
+            font-size: 0.85rem;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .link-btn {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .event-tag {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            color: #1565c0;
+            padding: 10px;
+            font-size: 0.85rem;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flight-info {
+            background: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1 style="margin:0">河堤小鹿雪國之旅</h1>
+        <p>星宇航空．北海道星野客製 6 日</p>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="flight-info">
+        <div style="font-weight:700; border-bottom:1px solid #555; padding-bottom:5px; margin-bottom:8px;">
+            <i class="bi bi-airplane"></i> 航班安排：星宇航空 (STARLUX)
+        </div>
+        <div>去程：JX850 | 台北 09:25 ➔ 札幌 14:00</div>
+        <div>回程：JX851 | 札幌 15:15 ➔ 台北 18:50</div>
+    </div>
+
+    <div class="section-title"><i class="bi bi-calendar-event me-2"></i> DAY 01 | 飛向北方大地</div>
+    <div class="card">
+        <div class="day-header">
+            <span class="day-badge">行程</span>
+            <span class="day-route">桃園機場 ✈ 札幌新千歲空港 → 星野 TOMAMU</span>
+        </div>
+        <ul class="itinerary-detail">
+            <li>搭乘星宇航空精品客機，享用精緻機上餐點。</li>
+            <li>抵達後前往北海道地標「星野 TOMAMU 渡假村」。</li>
+            <li>晚間於超人氣「森林餐廳」享用豐盛自助餐。</li>
+        </ul>
+        <div style="display: flex; gap: 5px; margin: 10px 0;">
+            <img src="forest_restaurant_1.jpeg" style="width:50%; border-radius:10px;">
+            <img src="forest_restaurant_2.jpeg" style="width:50%; border-radius:10px;">
+        </div>
+        <div class="info-grid">
+            <div class="info-item"><i class="bi bi-egg-fried"></i> <b>餐食：</b> 早：自理 / 午：機上 / 晚：森林餐廳</div>
+            <div class="info-item"><i class="bi bi-house-door"></i> <b>住宿：</b> 星野 TOMAMU 渡假村</div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="bi bi-calendar-event me-2"></i> DAY 02 | 星野全日悠遊</div>
+    <div class="card">
+        <div class="day-header">
+            <span class="day-badge">行程</span>
+            <span class="day-route">水之教堂 → 雪上活動 → 微笑海灘</span>
+        </div>
+        
+        <div class="recommend-tag">
+            <b>🏠 渡假村推薦行程：</b>
+            <ul style="margin: 5px 0 0; padding-left: 20px;">
+                <li><strong>霧冰平台：</strong>欣賞壯觀的雪國樹冰奇景。</li>
+                <li><strong>愛絲冰城 (Ice Village)：</strong>冬季限定的冰之城鎮。</li>
+                <li><strong>Hotalu Street：</strong>滑雪進出的購物餐飲街。</li>
+            </ul>
+        </div>
+
+        <ul class="itinerary-detail">
+            <li>參訪安藤忠雄大師作品「水之教堂」。</li>
+            <li>盡情享受渡假村內豐富雪上活動設施。</li>
+            <li>探訪全日本最大的室內人造浪泳池「微笑海灘」。</li>
+        </ul>
+        <div class="img-box"><img src="water_chapel.jpeg"></div>
+        <div class="img-box"><img src="map.jpeg"></div>
+        <div class="info-grid">
+            <div class="info-item"><i class="bi bi-egg-fried"></i> <b>餐食：</b> 早：飯店內 / 午：自理 / 晚：自理</div>
+            <div class="info-item"><i class="bi bi-house-door"></i> <b>住宿：</b> 星野 TOMAMU 渡假村</div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="bi bi-calendar-event me-2"></i> DAY 03 | 萌動動物園與札幌</div>
+    <div class="card">
+        <div class="day-header">
+            <span class="day-badge">行程</span>
+            <span class="day-route">旭山動物園 → 免稅店 → 札幌狸小路商店街</span>
+        </div>
+
+        <div class="event-tag">
+            <i class="bi bi-info-square-fill" style="font-size: 1.2rem;"></i>
+            <div>
+                <strong>冬季限定：企鵝散步 (預計 12月中~3月中)</strong><br>
+                每天兩次：<strong>11:00</strong> 與 <strong>14:30</strong> (各約30-40分鐘)
+            </div>
+        </div>
+
+        <div class="recommend-tag">
+            <b>🍴 午餐自理推薦：</b> 中央食堂、Cafe TOTORI、Museum Cafe、カムイチカプ
+        </div>
+        <ul class="itinerary-detail">
+            <li>近距離觀察企鵝遊行、海豹館與北極熊館。</li>
+            <li>札幌最大「狸小路商店街」採買各式藥妝、土產伴手禮。</li>
+        </ul>
+        <div class="img-box"><img src="penguin_walk.jpeg"></div>
+        <div class="img-box" style="border: 1px dashed #ccc;"><img src="zoo_map.jpeg"></div>
+        <div class="info-grid">
+            <div class="info-item"><i class="bi bi-egg-fried"></i> <b>餐食：</b> 早：飯店內 / 午：自理 / 晚：自理</div>
+            <div class="info-item"><i class="bi bi-house-door"></i> <b>住宿：</b> 札幌 APA 渡假村溫泉飯店</div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="bi bi-calendar-event me-2"></i> DAY 04 | 浪漫小樽與螃蟹盛宴</div>
+    <div class="card">
+        <div class="day-header">
+            <span class="day-badge">行程</span>
+            <span class="day-route">小樽運河 → 北海道神宮 → 札幌三大螃蟹放題</span>
+        </div>
+        <ul class="itinerary-detail">
+            <li>小樽運河漫步：參觀玻璃哨子館、八音盒堂、LeTAO午茶。</li>
+            <li>造訪北海道總鎮守「北海道神宮」祈福。</li>
+            <li>晚餐享用三大螃蟹(鱈場、長腳、毛蟹)吃到飽。</li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-item"><i class="bi bi-egg-fried"></i> <b>餐食：</b> 早：飯店內 / 午：自理 / 晚：三大螃蟹吃到飽</div>
+            <div class="info-item"><i class="bi bi-house-door"></i> <b>住宿：</b> 札幌 APA 渡發村溫泉飯店</div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="bi bi-calendar-event me-2"></i> DAY 05 | 購物與溫泉之夜</div>
+    <div class="card">
+        <div class="day-header">
+            <span class="day-badge">行程</span>
+            <span class="day-route">市區觀光 → 札幌工廠購物 → 登別地獄谷 → 洞爺湖溫泉</span>
+        </div>
+        
+        <div class="recommend-tag">
+            <b>🧱 札幌工廠 (Sapporo Factory)：</b><br>
+            由紅磚啤酒廠改建的購物中心，匯集戶外用品、服飾與美食。
+            <br>
+            <a href="https://trippino-hokkaido.com/tw/blog/enjoy_sapporo_factory_in_3hours/" class="link-btn" target="_blank">
+                <i class="bi bi-hand-index-thumb"></i> 3小時攻略指南
+            </a>
+        </div>
+
+        <ul class="itinerary-detail">
+            <li>札幌市區車上觀光：途經大通公園、時計台、舊道廳。</li>
+            <li>札幌工廠自由購物：感受紅磚建築美學與購物樂趣。</li>
+            <li>震撼的地熱奇觀：登別地獄谷漫步。</li>
+            <li>入住洞爺湖溫泉飯店，洗滌疲憊並享用精緻溫泉料理。</li>
+        </ul>
+        <div class="img-box"><img src="toya_hotel.jpeg"></div>
+        <div class="info-grid">
+            <div class="info-item"><i class="bi bi-egg-fried"></i> <b>餐食：</b> 早：飯店內 / 午：自理 / 晚：飯店內享用</div>
+            <div class="info-item"><i class="bi bi-house-door"></i> <b>住宿：</b> 洞爺湖華美酒店</div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="bi bi-calendar-event me-2"></i> DAY 06 | 購物與歸途</div>
+    <div class="card">
+        <div class="day-header">
+            <span class="day-badge">行程</span>
+            <span class="day-route">新千歲空港 ✈ 桃園國際機場</span>
+        </div>
+        <div class="recommend-tag">
+            <b>🛍️ 機場購物推薦：</b> 哆啦A夢天空樂園、Royce'巧克力世界、北菓樓。
+        </div>
+        <ul class="itinerary-detail">
+            <li>前往日本最好逛的「新千歲機場國內線」做最後補貨。</li>
+            <li>帶著滿滿的北國雪景回憶搭機返回台北。</li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-item"><i class="bi bi-egg-fried"></i> <b>餐食：</b> 早：飯店內 / 午：自理 / 晚：機上</div>
+            <div class="info-item"><i class="bi bi-airplane-engines"></i> <b>抵達：</b> 18:50 桃園機場</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
