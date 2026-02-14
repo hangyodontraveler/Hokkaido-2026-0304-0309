@@ -29,13 +29,18 @@
         }
         .hero h1 { font-size: 2.2rem; letter-spacing: 3px; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-        /* 📱 導覽標籤 - 精緻化 */
         .sticky-tabs {
             position: sticky; top: 0; z-index: 1000;
             background: var(--glass); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; overflow-x: auto; padding: 12px 10px; gap: 10px;
         }
-        .sticky-tabs::-webkit-scrollbar { display: none; }
+        .sticky-tabs::-webkit-scrollbar { 
+            height: 2px;
+        }
+        .sticky-tabs::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
         .tab-item {
             flex: 0 0 auto; padding: 7px 18px; background: white; border: 1px solid #eef2f6;
             border-radius: 50px; text-decoration: none; color: #64748b; font-size: 0.85rem; font-weight: 700;
@@ -45,17 +50,20 @@
 
         .container { max-width: 800px; margin: 20px auto 60px; padding: 0 15px; }
 
-        /* ⏳ 倒數計時器 */
         .countdown-wrap {
             background: white; border-radius: 24px; padding: 25px; 
             margin-bottom: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,119,190,0.06);
         }
-        .countdown-timer { display: flex; justify-content: center; gap: 12px; }
-        .timer-box { background: var(--info-bg); padding: 12px; min-width: 65px; border-radius: 15px; }
+        .countdown-timer { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+        .timer-box { background: var(--info-bg); padding: 12px; min-width: 65px; border-radius: 15px; flex-grow: 1; }
+        @media (max-width: 480px) {
+            .timer-box {
+                flex-basis: 40%;
+            }
+        }
         .timer-num { font-size: 1.6rem; font-weight: 700; color: var(--accent-blue); display: block; line-height: 1; }
         .timer-unit { font-size: 0.6rem; color: #94a3b8; margin-top: 5px; display: block; font-weight: 700; }
 
-        /* 🚨 集合提醒 */
         .notice-card {
             background: #fff; border: 2px solid var(--warning-orange); border-radius: 22px;
             padding: 22px; margin-bottom: 25px; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.1);
@@ -64,7 +72,6 @@
         .notice-title { color: var(--urgent-red); font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .notice-content { background: #fff9f0; padding: 15px; border-radius: 15px; border: 1px dashed var(--warning-orange); }
 
-        /* ✈️ 航班資訊 */
         .flight-card {
             background: #1e293b; color: #fff; padding: 25px; border-radius: 24px;
             margin-bottom: 35px; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
@@ -76,7 +83,6 @@
         .path-line { height: 1px; background: #475569; position: relative; margin-top: 10px; }
         .path-line::after { content: "\F1CB"; font-family: "bootstrap-icons"; position: absolute; top: -11px; left: 45%; background: #1e293b; padding: 0 8px; font-size: 1.1rem; color: var(--starlux-gold); }
 
-        /* 🏔 行程卡片 - UI 大重整 */
         .card { background: white; border-radius: 28px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); margin-bottom: 40px; overflow: hidden; border: 1px solid #f1f5f9; border-left: 6px solid var(--accent-blue); }
         .card-body { padding: 30px; }
         .section-title { color: var(--accent-blue); font-size: 1.6rem; font-weight: 700; margin: 50px 0 20px; display: flex; align-items: baseline; gap: 12px; }
@@ -87,13 +93,12 @@
         .itinerary-list li { position: relative; padding-left: 28px; margin-bottom: 15px; font-size: 0.98rem; color: #374151; }
         .itinerary-list li::before { content: "\F26A"; font-family: "bootstrap-icons"; position: absolute; left: 0; color: var(--accent-blue); font-weight: 900; }
 
-        /* 📸 滑動圖片 */
+        /* 滑動圖片容器 */
         .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 20px -10px; padding: 0 10px 10px; }
         .slider-container::-webkit-scrollbar { display: none; }
         .slider-item { flex: 0 0 92%; scroll-snap-align: center; }
         .slider-item img { width: 100%; height: 260px; object-fit: cover; border-radius: 22px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
 
-        /* 🍱 餐宿區塊 - 精緻化 */
         .card-footer-info { background: #fcfdfe; padding: 25px 30px; border-top: 1px solid #f1f5f9; }
         .info-row { display: flex; align-items: flex-start; margin-bottom: 12px; font-size: 0.95rem; }
         .info-label { min-width: 85px; font-weight: 700; color: var(--label-color); display: flex; align-items: center; gap: 8px; }
@@ -101,16 +106,13 @@
         .meal-badge { background: #fff; border: 1.5px solid #e2e8f0; padding: 2px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 900; color: #64748b; }
         .meal-badge.special { border-color: var(--starlux-gold); color: #854d0e; background: #fffbeb; }
 
-        /* 提示框 */
         .tip-box { background: #f0f9ff; border-radius: 18px; padding: 20px; margin: 20px 0; font-size: 0.92rem; border: 1px solid #e0f2fe; color: #0369a1; }
         .tip-box b { color: var(--accent-blue); display: block; margin-bottom: 5px; }
         .link-btn { color: #d97706; text-decoration: none; font-weight: 700; border-bottom: 2px solid #fcd34d; }
 
-        /* 📝 注意事項與 VJW */
-        .footer-card { background: white; border-radius: 24px; padding: 30px; margin-bottom: 30px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .footer-card { background: white; border-radius: 24px; padding: 30px; margin-bottom: 30px; border: 1px solid #e2e8f0; }
         .footer-title { font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px;}
         .vjw-link { display: block; background: #f1f5f9; padding: 15px; border-radius: 12px; margin-top: 10px; color: var(--accent-blue); text-decoration: none; word-break: break-all; font-size: 0.88rem; font-weight: 700; text-align: center; border: 1px solid #e2e8f0; }
-
         .highlight-text { color: var(--urgent-red); font-weight: 700; }
     </style>
 </head>
@@ -177,7 +179,7 @@
             </ul>
         </div>
         <div class="card-footer-info">
-            <div class="info-row"><div class="info-label"><i class="bi bi-egg-fried"></i>餐食</div><div class="meal-tags"><span class="meal-badge">早/自理</span><span class="meal-badge">午/機上</span><span class="meal-badge special">晚/森林餐廳自助餐</span></div></div>
+            <div class="info-row"><div class="info-label"><i class="bi bi-egg-fried"></i>餐食</div><div class="meal-tags"><span class="meal-badge">早/自理</span><span class="meal-badge">午/機上享用</span><span class="meal-badge special">晚/森林餐廳自助餐</span></div></div>
             <div class="info-row"><div class="info-label"><i class="bi bi-house"></i>住宿</div><div>星野 TOMAMU 渡假村</div></div>
         </div>
     </div>
@@ -200,7 +202,7 @@
             </ul>
         </div>
         <div class="card-footer-info">
-            <div class="info-row"><div class="info-label"><i class="bi bi-egg-fried"></i>餐食</div><div class="meal-tags"><span class="meal-badge">早/飯店內</span><span class="meal-badge">午/敬請自理</span><span class="meal-badge">晚/敬請自理</span></div></div>
+            <div class="info-row"><div class="info-label"><i class="bi bi-egg-fried"></i>餐食</div><div class="meal-tags"><span class="meal-badge">早/飯店內</span><span class="meal-badge">午/自理</span><span class="meal-badge">晚/自理</span></div></div>
             <div class="info-row"><div class="info-label"><i class="bi bi-house"></i>住宿</div><div>星野 TOMAMU 渡假村</div></div>
         </div>
     </div>
@@ -208,17 +210,13 @@
     <div id="day3" class="section-title"><span class="day-badge">DAY 03</span> <span class="section-date">2026/03/06 (五)</span></div>
     <div class="card">
         <div class="card-body">
-            <span class="day-route">旭山動物園 ➔ 札幌狸小路</span>
+            <span class="day-route">旭山動物園 ➔ 免稅店 ➔ 自由探訪札幌狸小路</span>
             <div style="background: #fffbeb; border: 1px solid #fef3c7; padding: 15px; border-radius: 15px; margin: 15px 0; font-size: 0.9rem;">
                 <i class="bi bi-info-circle-fill" style="color:var(--warning-orange);"></i> <b>企鵝散步預計：</b> 11:00 & 14:30 (冬季限定)
             </div>
             <div class="slider-container">
                 <div class="slider-item"><img src="penguin_walk.jpeg"></div>
                 <div class="slider-item"><img src="zoo_map.jpeg"></div>
-            </div>
-            <div class="tip-box">
-                <b>🍴 園內午餐推薦：</b>
-                中央食堂、Food Base Cafe TOTORI、Museum Cafe ASAHIYAMA、カムイチカプ。
             </div>
             <ul class="itinerary-list">
                 <li>近距離觀察可愛企鵝散步、北極熊與海豹館。</li>
@@ -239,12 +237,12 @@
                 <li>浪漫小樽散策，欣賞煤油燈下的石造倉庫建築群。</li>
                 <li>造訪北一哨子館、音樂盒博物館、LeTAO總店。</li>
                 <li>造訪北海道總鎮守「北海道神宮」祈福。</li>
-                <li>特別安排「三大螃蟹吃到飽」頂級海鮮晚宴。</li>
+                <li>特別安排「三大螃蟹吃到飽」頂級海鮮饗宴。</li>
             </ul>
         </div>
         <div class="card-footer-info">
             <div class="info-row"><div class="info-label"><i class="bi bi-egg-fried"></i>餐食</div><div class="meal-tags"><span class="meal-badge">早/飯店內</span><span class="meal-badge">午/自理</span><span class="meal-badge special">晚/三大螃蟹吃到飽</span></div></div>
-            <div class="info-row"><div class="info-label"><i class="bi bi-house"></i>住宿</div><div>札幌 APA 渡假村溫泉飯店</div></div>
+            <div class="info-row"><div class="info-label"><i class="bi bi-house"></i>住宿</div><div>札幌 APA 渡劇村溫泉飯店</div></div>
         </div>
     </div>
 
@@ -252,16 +250,18 @@
     <div class="card">
         <div class="card-body">
             <span class="day-route">市區觀光 ➔ 札幌工廠購物 ➔ 洞爺湖</span>
+            <div class="slider-container">
+                <div class="slider-item"><img src="toya_hotel.jpeg"></div>
+            </div>
             <div class="tip-box">
                 <b>🧱 札幌工廠 (Sapporo Factory)：</b>
                 紅磚啤酒廠改建購物中心。<br>
                 <a href="https://trippino-hokkaido.com/tw/blog/enjoy_sapporo_factory_in_3hours/" class="link-btn" target="_blank">3小時攻略指南連結</a>
             </div>
-            <div class="img-box"><img src="toya_hotel.jpeg"></div>
             <ul class="itinerary-list">
                 <li>札幌市區觀光，隨後前往札幌工廠自由購物。</li>
                 <li>造訪登別地獄谷感受震撼地熱奇景。</li>
-                <li>入住洞爺湖溫泉酒店，洗滌旅途疲憊並享用晚宴。</li>
+                <li>入住洞爺湖溫泉飯店，洗滌旅途疲憊並享用晚宴。</li>
             </ul>
         </div>
         <div class="card-footer-info">
@@ -292,38 +292,45 @@
     <div id="notice" class="footer-card">
         <div class="footer-title"><i class="bi bi-card-checklist"></i> 注意事項</div>
         <div class="footer-content">
-            <ul class="footer-list">
-                <li>1. 免費行李服務包含每人7公斤手提行李+一件23公斤托運行李，若現場行李超重部分按航空公司現場規定，費用敬請自理。</li>
-                <li>【團體機票】定義需團體同進出,依航空公司規定不能更改名字、不可更改來回日期及航班，無退票價值，不可辦理退票等，亦無法補發機票,一切依循航空公司作業。</li>
-                <li>請自行攜帶常備藥。</li>
-                <li>團費包含新台幣250萬責任險暨新台幣20萬意外醫療險(不含法定傳染疾病就醫等相關費用，如當地確診 衍生費用需旅客負擔)。</li>
-                <li>建議旅客自費購買海外突發疾病保險。</li>
-                <li>金錢：現金不超過美金一萬元等值外幣，『旅行支票或銀行匯票不限』，新台幣不超過台幣六萬元整。</li>
-                <li>如遇不可抗拒情況，本公司保有變更同等級班機、飯店之權利。行程以當地導遊安排為主。</li>
-                <li><span class="highlight-text">鋰電池規範：</span>備用鋰電池僅能放在手提行李中，且須符合一百瓦小時以下的規格限制。惡意違規者，最多可依民航法處以兩萬元到十萬元罰款。記得放在手提行李中。</li>
-                <li>台北緊急聯絡處：找到了旅行社<br>聯絡人：吳小姐 行動電話：0978-277-997 / 聯絡人：陳小姐 行動電話：0985-337-241</li>
+            <ul class="footer-list" style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1em;"><b>行李服務：</b>免費包含每人7公斤手提行李與一件23公斤托運行李。若現場超重，費用需按航空公司規定自理。</li>
+                <li style="margin-bottom: 1em;"><b>常備藥物：</b>請自行攜帶個人所需藥品。</li>
+                <li style="margin-bottom: 1em;"><b>旅遊保險：</b>團費包含250萬責任險及20萬意外醫療險。不含法定傳染病等相關費用，建議您可自行加購海外突發疾病醫療險。</li>
+                <li style="margin-bottom: 1em;"><b>攜帶金錢：</b>現金不超過等值美金一萬元，台幣不超過六萬元。旅行支票或銀行匯票不限。</li>
+                <li style="margin-bottom: 1em;"><b>行程變更：</b>如遇不可抗拒情況，本公司保有變更同等級班機、飯店之權利。導遊會因應花季、人潮及交通狀況，彈性調整行程順序。若景點因故取消，將由導遊現場退費。</li>
+                <li style="margin-bottom: 1em;"><b>鋰電池規定：</b>為策飛航安全，備用鋰電池(如行動電源)僅能放置於<span class="highlight-text">手提行李</span>中，且須符合100瓦小時以下規格。違者可能面臨民航法罰款。</li>
+                <li style="margin-bottom: 1em;"><b>台北緊急聯絡：</b>找到了旅行社<br>
+                    吳小姐 0978-277-997 / 陳小姐 0985-337-241
+                </li>
             </ul>
-            <p style="text-align:center; font-weight:700; margin-top:20px; color:var(--accent-blue);">❄️ 敬祝 旅途愉快 萬事如意 ❄️</p>
+            <p style="text-align: center; font-weight: bold; margin-top: 25px; border-top: 1px solid #f1f5f9; padding-top: 20px;">敬祝 旅途愉快 萬事如意</p>
         </div>
     </div>
 
     <div id="vjw" class="footer-card" style="border-top: 6px solid var(--accent-blue);">
         <div class="footer-title"><i class="bi bi-qr-code-scan"></i> Visit Japan Web</div>
-        <div class="footer-content">
-            <p style="font-weight:700; margin-bottom:10px;">2022年11月14日起，入境日本須完成以下流程：</p>
-            <ul class="footer-list" style="font-size: 0.88rem;">
-                <li>1. 出發前須先登錄Visit Japan Web(2022年11月1日起可用)</li>
-                <li>(1) 12歲以下兒童，或無智慧型手機者等，無法自行辦理手續者可一起註冊為同行家人</li>
-                <li>(2) 同行家人最多可追加至10人</li>
-            </ul>
-            <div style="margin-top:15px;">
-                <span style="font-weight:700;">1.1 登錄網址：</span>
-                <a class="vjw-link" href="https://www.vjw.digital.go.jp/" target="_blank">https://www.vjw.digital.go.jp/</a>
-                <span style="font-weight:700; margin-top:10px; display:block;">1.2 網站說明 (需準備：email信箱、護照)：</span>
-                <a class="vjw-link" href="https://vjw-lp.digital.go.jp/zh-hant/howto/#howtooperation" target="_blank">操作流程說明連結</a>
-                <span style="font-weight:700; margin-top:10px; display:block;">1.3 常見 Q&A：</span>
-                <a class="vjw-link" href="https://www.vjw.digital.go.jp/main/#/vjwpco011" target="_blank">官方 Q&A 網址連結</a>
+        <div class="footer-content" style="font-size: 0.95rem; line-height: 1.7;">
+            <p style="font-weight:700; color: var(--urgent-red);">★★★ 2022年11月14日起，入境日本須完成以下流程：</p>
+            <div style="background: var(--info-bg); padding: 15px; border-radius: 12px; border: 1px solid #eef2f6;">
+                <p style="margin-top: 0;"><b>出發前須先登入 Visit Japan Web</b><br>
+                <small>
+                    (1) 12歲以下兒童，或無智慧型手機者等，可一起註冊為同行家人。<br>
+                    (2) 同行家人最多可追加至10人。
+                </small>
+                </p>
+                <p style="margin-bottom: 0;">
+                    <b>註冊流程 (需準備：Email、護照)</b><br>
+                    <ol style="padding-left: 20px; margin: 5px 0 0;">
+                        <li>登入Visit Japan Web頁面，並完成註冊。</li>
+                        <li>輸入個人資料 → 增加入境資訊。</li>
+                        <li>填寫入境審查與海關申報 (完成后會顯示1個QR Code)。</li>
+                        <li>入境日本時出示該QR Code給海關審查即可。</li>
+                    </ol>
+                </p>
             </div>
+            <a class="vjw-link" href="https://www.vjw.digital.go.jp/" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Visit Japan Web 登錄網址</a>
+            <a class="vjw-link" style="background-color: #f0f9ff; border-color: #e0f2fe;" href="https://vjw-lp.digital.go.jp/zh-hant/howto/#howtooperation" target="_blank"><i class="bi bi-question-circle"></i> 官方操作流程說明</a>
+            <a class="vjw-link" style="background-color: #f0f9ff; border-color: #e0f2fe;" href="https://www.vjw.digital.go.jp/main/#/vjwpco011" target="_blank"><i class="bi bi-patch-question"></i> 常見Q&A</a>
         </div>
     </div>
 
